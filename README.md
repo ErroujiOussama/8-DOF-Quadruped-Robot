@@ -1,5 +1,7 @@
 # 8-DOF Quadruped Robot 
 
+![Uploading image.png…]()
+
 ## Overview
 This project provides the firmware and algorithms driving an 8-degree-of-freedom (DOF) quadruped robot. It delivers:
 - Modular code for joint control, inverse kinematics, and trajectory generation
