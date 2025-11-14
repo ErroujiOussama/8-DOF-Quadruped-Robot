@@ -1,9 +1,30 @@
 
-/***************************************************
+/***************************************************************
+ *  Credits:
+ *  Oussama Errouji
+ *  Developed and adapted this code during the NRC Competition,
+ *  2025 edition.
+ *
+ *  File Purpose:
+ *  Generates and manages leg movement trajectories (linear and elliptical)
+ *  for coordinated walking and gait cycles. Critical for synchronized motion.
+ *
+ *  Please cite this contribution if reused or reworked.
+ ***************************************************************/
+
+ /***************************************************
  * Find the trajectory points between two steps,
  * The trajectory can be linear (ground phase) 
  * or elliptical (flight phase)
  *****************************************************/
+// --------------------------------------------------------------
+// leg_trajectory_for_step:
+// Computes the sequence of trajectory points for a single robot leg between two walk steps.
+// Based on the current and next step, it chooses between ground phase (linear) and flight phase (elliptical) paths.
+//  - Linear path is used for legs on the ground (stance phase).
+//  - Elliptical path (with optional reversal) models the leg 'flying' through the air (swing phase), allowing smooth lifting and placement.
+// This trajectory is crucial for coordinated quadruped walking in robotics, allowing alternating support and swing phases.
+// --------------------------------------------------------------
 void leg_trajectory_for_step(struct leg *L, int s)
 {
       //find the current step 
@@ -62,10 +83,11 @@ void leg_trajectory_for_step(struct leg *L, int s)
 }
 
 /******************************************
- * Given a pose structure return a cartesian point
- * A pose can have an index from 0 to 4, where 0 is
- * the swing phase and 1 to four are the support phase
- * The pose contains the relevant geometry to generate the point
+ * point_for_pose:
+ * Maps a discrete pose structure (with width, height, origin, and phase index) to coordinates in space.
+ * The pose index represents specific gait phases:
+ *   0: swing; 1-4: stance/support.
+ * This mapping underpins trajectory generation, translating gait logic to motion.
  *********************************************/
 struct point point_for_pose(struct pose *P)
 {
@@ -99,9 +121,10 @@ struct point point_for_pose(struct pose *P)
 
 
 /*********************************************************
- * generate a linear trajectory plan (steps) between two points
- * with the required granularity (number of points)
- * The last parameter tells if you want the first point in the plan or not
+ * linear_trajectory:
+ * Generates a set of evenly spaced points between two coordinates, forming the leg's path during the stance (ground) phase.
+ * Uses basic linear interpolation in Cartesian space.
+ * This method is fundamental in robotics for achieving predictable, smooth, ground-phase movement.
  *********************************************************/
 void linear_trajectory(struct point steps[], int granularity, struct line *L, boolean skip_start_point)
 {
@@ -133,9 +156,10 @@ void linear_trajectory(struct point steps[], int granularity, struct line *L, bo
 }
 
 /*********************************************************
- * Generate an elliptical trajectory plan 
- * with the required granularity for the provided arc struct. 
- * The last parameter tells if you want the first point in the plan or not
+ * elliptical_trajectory:
+ * Generates a set of points along an elliptical arc, used for the flight phase of leg movement (leg off the ground),
+ * providing smooth vertical lift and forward progression.
+ * This models natural animal gaits and avoids abrupt touchdown/launch, enabling stable and realistic walking.
  *********************************************************/
 void elliptical_trajectory(struct point steps[], int granularity, struct arc *a, boolean skip_start_point)
 {
@@ -159,6 +183,11 @@ void elliptical_trajectory(struct point steps[], int granularity, struct arc *a,
       }
 }
 
+/*********************************************************
+ * reverse_trajectory:
+ * Simple utility function that reverses the order of waypoints in a trajectory array.
+ * Useful for generating backward motion without recalculating a new trajectory.
+ *********************************************************/
 void reverse_trajectory(struct point steps[])
 {
     struct point t[10];

@@ -1,3 +1,15 @@
+/***************************************************************
+ *  Credits:
+ *  Oussama Errouji
+ *  Developed and adapted this code during the NRC Competition,
+ *  2025 edition.
+ *
+ *  File Purpose:
+ *  Test and debug routines for kinematic and trajectory algorithms.
+ *  Enables validation, calibration, and experimentation.
+ *
+ *  Please cite this contribution if reused or reworked.
+ ***************************************************************/
 void test_point_for_pose()
 {
   struct pose P;

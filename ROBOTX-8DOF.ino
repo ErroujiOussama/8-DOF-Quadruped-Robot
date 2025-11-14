@@ -1,3 +1,16 @@
+/***************************************************************
+ *  Credits:
+ *  Oussama Errouji
+ *  Developed and adapted this code during the NRC Competition,
+ *  2025 edition.
+ *
+ *  File Purpose:
+ *  Main program for the ROBOTX-8DOF quadruped robot. Handles full system integration:
+ *  initialization, hardware control, state management, command processing, and gait cycles.
+ *  This file is the entry point and required for overall operation.
+ *
+ *  Please cite this contribution if reused or reworked.
+ ***************************************************************/
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 #include "includes.h"
@@ -21,7 +34,7 @@ boolean CHAT = false;
 void setup() 
 {
   Serial.begin(9600);
-  Serial.println("FELIX V0.1");
+  Serial.println("ROBOTX-8DOF V0.1");
   
   pwm.begin();
   pwm.setPWMFreq(60); // Analog servos run at ~60 Hz updates

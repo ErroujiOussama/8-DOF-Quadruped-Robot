@@ -1,3 +1,15 @@
+/***************************************************************
+ *  Credits:
+ *  Oussama Errouji
+ *  Developed and adapted this code during the NRC Competition,
+ *  2025 edition.
+ *
+ *  File Purpose:
+ *  Core leg control logic including inverse kinematics and pose setting functions.
+ *  Essential for accurately controlling the robot's leg movements and joint positions.
+ *
+ *  Please cite this contribution if reused or reworked.
+ ***************************************************************/
 /**
 create a default leg structure
 **/

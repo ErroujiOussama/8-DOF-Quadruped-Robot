@@ -1,3 +1,15 @@
+/***************************************************************
+ *  Credits:
+ *  Oussama Errouji
+ *  Developed and adapted this code during the NRC Competition,
+ *  2025 edition.
+ *
+ *  File Purpose:
+ *  Core definitions, constants, data structures, and configuration for the quadruped robot. 
+ *  Required by all robot modules for universal access to parameters and structures.
+ *
+ *  Please cite this contribution if reused or reworked.
+ ***************************************************************/
 //Serial communication variables
 String message = ""; 
 boolean message_complete = false;
