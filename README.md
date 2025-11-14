@@ -8,8 +8,6 @@ This project provides the firmware and algorithms driving an 8-degree-of-freedom
 - Coordinated gait cycles for realistic robot walking
 - Serial command interface for remote control and parameter tuning
 
-The code was written and adapted by Oussama Errouji for the NRC 2025 competition and is designed for extensibility and clarity, with documentation and professional comments throughout.
-
 ---
 
 ## Directory & File Structure
