@@ -1,6 +1,6 @@
 # 8-DOF Quadruped Robot 
 
-![img](https://errouji.vercel.app/content/Robotics/Quadruped_Robot/assembled_robot.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b091a692-b68d-41e4-be70-d0828e6532f2" />
 
 ## Overview
 This project provides the firmware and algorithms driving an 8-degree-of-freedom (DOF) quadruped robot. It delivers:
