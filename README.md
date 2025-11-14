@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d2fa50f-a39e-44c0-baf1-7dba50a79bba" /># 8-DOF Quadruped Robot 
+# 8-DOF Quadruped Robot 
 
 ![img](https://errouji.vercel.app/content/Robotics/Quadruped_Robot/assembled_robot.png)
 
